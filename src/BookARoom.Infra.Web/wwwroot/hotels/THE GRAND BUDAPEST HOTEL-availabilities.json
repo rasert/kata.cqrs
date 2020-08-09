@@ -1,0 +1,43 @@
+﻿{
+  "HotelId": 2,
+  "HotelName": "THE GRAND BUDAPEST HOTEL",
+  "Location": "Budapest",
+  "NumberOfRooms": 240,
+  "AvailabilitiesAt": {
+    "2017-09-16T00:00:00": [
+      {
+        "RoomIdentifier": "101",
+        "OneAdultOccupancyPrice": {
+          "Currency": "EUR",
+          "Value": 109.0
+        },
+        "TwoAdultsOccupancyPrice": {
+          "Currency": "EUR",
+          "Value": 140.0
+        }
+      },
+      {
+        "RoomIdentifier": "102",
+        "OneAdultOccupancyPrice": {
+          "Currency": "EUR",
+          "Value": 109.0
+        },
+        "TwoAdultsOccupancyPrice": {
+          "Currency": "EUR",
+          "Value": 140.0
+        }
+      },
+      {
+        "RoomIdentifier": "201",
+        "OneAdultOccupancyPrice": {
+          "Currency": "EUR",
+          "Value": 209.0
+        },
+        "TwoAdultsOccupancyPrice": {
+          "Currency": "EUR",
+          "Value": 240.0
+        }
+      }
+    ]
+  }
+}

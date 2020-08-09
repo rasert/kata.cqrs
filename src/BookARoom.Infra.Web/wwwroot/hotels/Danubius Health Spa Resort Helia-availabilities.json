@@ -1,0 +1,21 @@
+﻿{
+  "HotelId": 3,
+  "HotelName": "Danubius Health Spa Resort Helia",
+  "Location": "Budapest",
+  "NumberOfRooms": 125,
+  "AvailabilitiesAt": {
+    "2017-09-16T00:00:00": [
+      {
+        "RoomIdentifier": "101",
+        "OneAdultOccupancyPrice": {
+          "Currency": "EUR",
+          "Value": 109.0
+        },
+        "TwoAdultsOccupancyPrice": {
+          "Currency": "EUR",
+          "Value": 140.0
+        }
+      }
+    ]
+  }
+}

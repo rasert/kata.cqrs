@@ -1,0 +1,28 @@
+﻿@using System.Text.Encodings.Web
+@model BookARoom.Infra.Web.ViewModels.BookingRequestViewModel
+@{
+    ViewData["Title"] = "Room booked";
+}
+<br />
+<br />
+@if (Model.BookingSucceeded)
+{
+    <h2>Your reservation has been taken into account.</h2>
+    <div>You will received a confirmation e-mail in few seconds.</div>
+    <br/>
+    <br/>
+    <div>You can consult all your booking reservations in the <a href="~/Reservations?email=@Model.ClientMail">"My reservations"</a> section of the site.
+    </div>
+    <br/>
+    <br/>
+    <div><strong>BookARoom</strong> wish you an happy journey at the <strong>@Model.HotelName</strong>.
+    </div>
+}
+else
+{
+    <img src="~/images/HomerError.png" />
+    <h2>Your booking reservation has failed due to a missing or wrong e-mail.</h2>
+    <br/>
+    <div><a href="" class="button" onclick="history.back(); return false;">Click here to retry.</a></div>
+    <br />
+}

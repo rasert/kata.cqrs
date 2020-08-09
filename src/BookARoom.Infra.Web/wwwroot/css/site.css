@@ -1,71 +1,76 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿body {
+    background-color: #f0ecec;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: sans-serif;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    border: thin solid #2f4f4f;
+    background-color: #ffffff;
+    max-width: 380px;
+    margin-left:5px;
+    margin-right:5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 4px;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+a.button, button, input[type="submit"]{
+ cursor:pointer;
+    padding: 8px;
+ background-color:  #ec1414;
+    border-style: solid;
+    border-color: #c21212;
+    color: #ffffff;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
 }
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"]
+{
+    width: 100%;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+  /* Hide captions */
+  .carousel-caption {
+    display: none
   }
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+table {
+border: medium solid #c21212;
+border-collapse: collapse;
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+td {
+border: thin solid #c21212;
+padding: 20px;
+text-align: center;
+background-color: #ffffff;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+th {
+border: thin solid #c21212;
+background-color: #ec1414;
+padding: 10px;
+text-align: center;
+color: #ffffff;
 }

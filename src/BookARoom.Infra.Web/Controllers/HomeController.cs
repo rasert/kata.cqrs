@@ -1,37 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using BookARoom.Domain;
+using BookARoom.Domain.ReadModel;
+using BookARoom.Infra.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using BookARoom.Infra.Web.Models;
 
 namespace BookARoom.Infra.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IQueryBookingOptions searchService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ISendCommands bus, IQueryBookingOptions searchService)
         {
-            _logger = logger;
+            this.searchService = searchService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            ViewData["Message"] = "Search a room";
+
+            var defaultCheckInDate = new DateTime(2017, 09, 16);
+            var defaultSearchQuery = new SearchRoomQueryViewModel("Budapest", defaultCheckInDate, defaultCheckInDate.AddDays(1), numberOfAdults:2);
+            return View(defaultSearchQuery);
         }
 
-        public IActionResult Privacy()
+        
+        public IActionResult About()
         {
+            ViewData["Message"] = "What is BookARoom?";
+
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Contact()
+        {
+            ViewData["Message"] = "Wanna know more?";
+
+            return View();
+        }
+
         public IActionResult Error()
         {
-            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+            return View();
         }
     }
 }

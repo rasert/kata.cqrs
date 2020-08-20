@@ -38,6 +38,16 @@ namespace BookARoom.Infra.ReadModel.Adapters
         private void Handle(BookingCanceled bookingCanceled)
         {
             // TODO: declare room available
+            
+            // As you will see, there is something more to do since the read-model will need some
+            // extra information in order to be able to make the corresponding room appear again.
+            //
+            // Will you need to add extra information from the source event?
+            // Instead, will you need to request those informations on the read-model side (near to the need)?
+            //
+            // As you have probably already understand, there is no one size fits all CQRS architecture.
+            // Only trade-offs and options to adjust to your domain needs and constraints.
+            
             throw new NotImplementedException();
         }
 

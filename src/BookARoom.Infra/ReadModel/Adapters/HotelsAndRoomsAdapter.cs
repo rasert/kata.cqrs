@@ -25,9 +25,7 @@ namespace BookARoom.Infra.ReadModel.Adapters
             this.repository = new HotelsAndRoomsRepository();
 
             this.eventsSubscriber = eventsSubscriber;
-            this.eventsSubscriber.RegisterHandler<RoomBooked>(this.Handle); 
-            // TODO: question: should we 'functionally subscribe' within the domain code instead?
-            // TODO: handle the unsubscription
+            this.eventsSubscriber.RegisterHandler<RoomBooked>(this.Handle);
         }
 
         private void Handle(RoomBooked roomBooked)
@@ -70,8 +68,6 @@ namespace BookARoom.Infra.ReadModel.Adapters
             }
             return integrationFileAvailabilitieses;
         }
-
-        // TODO: get rid of regions by extracting more cohesive types
 
         #region IProvideRooms methods
 

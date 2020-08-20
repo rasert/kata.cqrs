@@ -11,6 +11,7 @@ namespace BookARoom.Domain.WriteModel
         public string RoomNumber { get; }
         public DateTime CheckInDate { get; }
         public DateTime CheckOutDate { get; }
+        public bool IsCanceled { get; private set; }
 
         public Booking(Guid bookingId , string clientId, int hotelId, string roomNumber, DateTime checkInDate, DateTime checkOutDate)
         {

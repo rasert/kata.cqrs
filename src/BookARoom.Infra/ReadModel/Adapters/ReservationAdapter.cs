@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BookARoom.Domain.ReadModel;
 using BookARoom.Domain.WriteModel;
 using ISubscribeToEvents = BookARoom.Domain.ReadModel.ISubscribeToEvents;
@@ -13,7 +14,9 @@ namespace BookARoom.Infra.ReadModel.Adapters
         public ReservationAdapter(ISubscribeToEvents eventsSubscriber)
         {
             this.eventsSubscriber = eventsSubscriber;
+            
             this.eventsSubscriber.RegisterHandler<RoomBooked>(Handle);
+            this.eventsSubscriber.RegisterHandler<BookingCanceled>(Handle);
         }
 
         private void Handle(RoomBooked @event)
@@ -25,6 +28,12 @@ namespace BookARoom.Infra.ReadModel.Adapters
 
             var reservation = new Reservation(@event.Guid, @event.ClientId, @event.HotelName, @event.HotelId.ToString(), @event.RoomNumber, @event.CheckInDate, @event.CheckOutDate);
             this.perClientReservations[@event.ClientId].Add(reservation);
+        }
+        
+        private void Handle(BookingCanceled @event)
+        {
+            // TODO: find the reservation made by this client and declare it Canceled
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Reservation> GetReservationsFor(string clientId)

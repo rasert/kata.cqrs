@@ -25,12 +25,20 @@ namespace BookARoom.Infra.ReadModel.Adapters
             this.repository = new HotelsAndRoomsRepository();
 
             this.eventsSubscriber = eventsSubscriber;
+            
             this.eventsSubscriber.RegisterHandler<RoomBooked>(this.Handle);
+            this.eventsSubscriber.RegisterHandler<BookingCanceled>(this.Handle);
         }
 
         private void Handle(RoomBooked roomBooked)
         {
             this.repository.DeclareRoomBooked(roomBooked.HotelId, roomBooked.RoomNumber, roomBooked.CheckInDate, roomBooked.CheckOutDate);
+        }
+        
+        private void Handle(BookingCanceled bookingCanceled)
+        {
+            // TODO: declare room available
+            throw new NotImplementedException();
         }
 
         public string IntegrationFilesDirectoryPath { get; }

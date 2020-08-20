@@ -11,6 +11,7 @@ namespace BookARoom.Domain.ReadModel
         public string RoomNumber { get; }
         public DateTime CheckInDate { get; }
         public DateTime CheckOutDate { get; }
+        public bool IsCanceled { get; private set; }
 
 
         public Reservation(Guid guid, string clientId, string hotelName, string hotelId, string roomNumber, DateTime checkInDate, DateTime checkOutDate)
@@ -27,6 +28,11 @@ namespace BookARoom.Domain.ReadModel
         public override string ToString()
         {
             return $"Reservation for:{ClientId} at Hotel:{HotelName} (id:{HotelId}), RoomNumber:{RoomNumber} for check-in date:{CheckInDate.ToString("d")} and check-out date:{CheckOutDate.ToString("d")}";
+        }
+
+        public void Cancel()
+        {
+            IsCanceled = true;
         }
     }
 }

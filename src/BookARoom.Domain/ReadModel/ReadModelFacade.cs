@@ -49,6 +49,7 @@ namespace BookARoom.Domain.ReadModel
 
         public IEnumerable<Hotel> SearchFromLocation(string location)
         {
+            // Not part of the challenge.
             throw new NotImplementedException();
         }
 

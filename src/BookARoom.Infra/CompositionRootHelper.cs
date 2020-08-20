@@ -26,9 +26,9 @@ namespace BookARoom.Infra
             return new ReadModelFacade(roomsAdapter, hotelAdapter, reservationAdapter, bus);
         }
 
-        public static WriteModelFacade BuildTheWriteModelHexagon(ISaveBooking saveBooking, IHandleClients handleClients, IPublishEvents eventPublisher, ISubscribeToEvents eventSubscriber)
+        public static WriteModelFacade BuildTheWriteModelHexagon(IHandleBookings handleBookings, IHandleClients handleClients, IPublishEvents eventPublisher, ISubscribeToEvents eventSubscriber)
         {
-            var writeModelCommandHandler = new WriteModelFacade(new BookingStore(saveBooking, handleClients, eventPublisher));
+            var writeModelCommandHandler = new WriteModelFacade(new BookingStore(handleBookings, handleClients, eventPublisher));
             CompositionRootHelper.SubscribeCommands(writeModelCommandHandler, eventSubscriber);
 
             return writeModelCommandHandler;
@@ -42,6 +42,7 @@ namespace BookARoom.Infra
         private static void SubscribeCommands(WriteModelFacade writeModelFacade, ISubscribeToEvents bus)
         {
             bus.RegisterHandler<BookingCommand>(writeModelFacade.Handle);
+            // TODO: register Cancel Booking command handler
         }
     }
 }

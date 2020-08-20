@@ -14,9 +14,4 @@
             this.BookingStore.BookARoom(command);
         }
     }
-
-    public interface IHandleCommand<T>
-    {
-        void Handle(T command);
-    }
 }

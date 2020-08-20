@@ -8,8 +8,6 @@ namespace BookARoom.Domain.ReadModel
     /// </summary>
     public class ReadModelFacade : IQueryBookingOptions, IProvideHotel, IProvideReservations
     {
-        // TODO: question: find a domain name instead or keep focus on the CQRS pattern to ease understanding of the MS experiences'16 audience?
-
         private readonly IProvideRooms roomsProvider;
         private readonly IProvideHotel hotelProvider;
         private readonly IProvideReservations reservationsProvider;

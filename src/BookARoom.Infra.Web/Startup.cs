@@ -37,8 +37,6 @@ namespace BookARoom.Infra.Web
 
             var bookingHandler = CompositionRootHelper.BuildTheWriteModelHexagon(bookingRepository, bookingRepository, bus, bus);
 
-            // TODO: register handlers for the query part coming from the bus?
-
             // Build the READ side ---------------------------------
             var hotelsAdapter = new HotelsAndRoomsAdapter($"{env.WebRootPath}/hotels/", bus);
             hotelsAdapter.LoadAllHotelsFiles();

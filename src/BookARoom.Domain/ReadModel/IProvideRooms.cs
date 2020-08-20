@@ -9,7 +9,6 @@ namespace BookARoom.Domain.ReadModel
     /// </summary>
     public interface IProvideRooms
     {
-        // TODO: return IEnumerable<AvailableRoomsWithPrices> instead
         IEnumerable<BookingOption> SearchAvailableHotelsInACaseInsensitiveWay(string location, DateTime checkInDate, DateTime checkOutDate);
     }
 }

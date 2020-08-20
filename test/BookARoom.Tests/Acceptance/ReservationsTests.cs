@@ -42,7 +42,7 @@ namespace BookARoom.Tests.Acceptance
             var reservation = reservations.First();
 
             Check.That(reservation.ClientId).IsEqualTo(clientId);
-            Check.That(reservation.HotelId).IsEqualTo(hotelId.ToString()); // TODO: make the hotelId a string and not an int.
+            Check.That(reservation.HotelId).IsEqualTo(hotelId.ToString());
             Check.That(reservation.RoomNumber).IsEqualTo(roomNumber);
             Check.That(reservation.CheckInDate).IsEqualTo(checkInDate);
             Check.That(reservation.CheckOutDate).IsEqualTo(checkOutDate);

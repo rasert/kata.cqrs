@@ -16,7 +16,6 @@ namespace BookARoom.Infra.ReadModel.Adapters
     /// </summary>
     public class HotelsAndRoomsAdapter : IProvideRooms, IProvideHotel
     {
-        // TODO: extract behaviours from this adapter to put it on the domain-side
         private readonly ISubscribeToEvents eventsSubscriber;
         private readonly IStoreAndProvideHotelsAndRooms repository;
 

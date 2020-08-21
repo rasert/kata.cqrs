@@ -16,8 +16,8 @@
 
         public void Handle(CancelBookingCommand command)
         {
-            // TODO: handle Cancel Booking commands
-            throw new System.NotImplementedException();
+            // handle Cancel Booking commands
+            this.BookingStore.CancelBooking(command);
         }
     }
 }

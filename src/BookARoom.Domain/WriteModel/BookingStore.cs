@@ -33,10 +33,20 @@ namespace BookARoom.Domain.WriteModel
 
         public void CancelBooking(CancelBookingCommand command)
         {
-            // TODO: fetch booking, check specified clientId, cancel and update persistence
-            // TODO: instantiate and publish a new Booking Canceled event so that the Read Model has a chance to update itself
-            // TODO: throw invalid operation exception if trying to cancel a booking for another client
-            throw new NotImplementedException();
+            //: fetch booking, check specified clientId, cancel and update persistence
+            var booking = handleBookings.GetBooking(command.ClientId, command.BookingId);
+            
+            if (booking == null)
+            {
+                //: throw invalid operation exception if trying to cancel a booking for another client
+                throw new InvalidOperationException();
+            }
+            booking.Cancel();
+            handleBookings.Update(booking);
+            
+            //: instantiate and publish a new Booking Canceled event so that the Read Model has a chance to update itself
+            var roomCanceled = new BookingCanceled(command.ClientId, command.BookingId);
+            this.publishEvents.PublishTo(roomCanceled);
         }
     }
 }

@@ -33,7 +33,9 @@ namespace BookARoom.Infra.ReadModel.Adapters
         private void Handle(BookingCanceled @event)
         {
             // TODO: find the reservation made by this client and declare it Canceled
-            throw new NotImplementedException();
+            var reservation = GetReservationsFor(@event.ClientId);
+
+
         }
 
         public IEnumerable<Reservation> GetReservationsFor(string clientId)

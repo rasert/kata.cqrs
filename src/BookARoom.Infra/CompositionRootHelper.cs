@@ -42,7 +42,8 @@ namespace BookARoom.Infra
         private static void SubscribeCommands(WriteModelFacade writeModelFacade, ISubscribeToEvents bus)
         {
             bus.RegisterHandler<BookingCommand>(writeModelFacade.Handle);
-            // TODO: register Cancel Booking command handler
+            // register Cancel Booking command handler
+            bus.RegisterHandler<CancelBookingCommand>(writeModelFacade.Handle);
         }
     }
 }
